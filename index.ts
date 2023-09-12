@@ -13,7 +13,7 @@ function findFirstCommonWordWithIndexes(
     }
   }
 
-  return null; // No common word found
+  return null;
 }
 function findDifferences(sentence1: string, sentence2: string) {
   const differences: string[] = [];
@@ -24,12 +24,9 @@ function findDifferences(sentence1: string, sentence2: string) {
   const addDifferences = (removedWords: string[], addedWords: string[]) => {
     removedWords = removedWords.filter((w) => w !== "");
     addedWords = addedWords.filter((w) => w !== "");
-    if (removedWords.length > 0 && addedWords.length > 0)
-      differences.push(`-${removedWords.join(" ")}- +${addedWords.join(" ")}+`);
-    else if (removedWords.length > 0)
+    if (removedWords.length > 0)
       differences.push(`-${removedWords.join(" ")}-`);
-    else if (addedWords.length > 0)
-      differences.push(`+${addedWords.join(" ")}+`);
+    if (addedWords.length > 0) differences.push(`+${addedWords.join(" ")}+`);
   };
 
   let i = 0;
